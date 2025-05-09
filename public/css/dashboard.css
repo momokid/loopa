@@ -35,6 +35,13 @@ body {
     background: limegreen;
     border-radius: 50%;
   }
+
+  .status-indicator.offline {
+    width: 10px;
+    height: 10px;
+    background: rgb(109, 110, 109);
+    border-radius: 50%;
+  }
   
   .search-box {
     display: flex;
@@ -171,4 +178,23 @@ body {
     margin-left: 0.5rem;
     border-radius: 50%;
   }
+  .chat-users-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+.chat-users-list:hover{
+  background-color: #b4b2b2;
+  padding: 10px;
+
+}
+
+  .chat-users-list .name{
+    font-weight: bold;
+  }
   
+  .chat-users-list .last-message{
+    font-size: 11px;
+    color: #7b7a7a;
+  }
