@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat Dashboard </title>
+  <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div class="user-profile">
+        <img src="images/avatars/user.jpg" alt="User Avatar"/>
+        <div class="user-name">Anwar Sadat</div>
+        <div class="status-indicator online"></div>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search" />
+        <button class="add-btn">+</button>
+      </div>
+      <div class="chat-tabs">
+        <button class="active">Active Now</button>
+        <button>Favourite</button>
+        <button>All</button>
+      </div>
+      <ul class="chat-list">
+        <li class="chat-item active">
+          <img src="images/avatars/john.jpg" />
+          <div class="chat-details">
+            <div class="name">John Doe</div>
+            <div class="last-message">Hey!</div>
+          </div>
+        </li>
+        <!-- More chat items -->
+      </ul>
+    </aside>
+
+    <main class="chat-area">
+      <header class="chat-header">
+        <img src="images/avatars/john.jpg" />
+        <div class="chat-user">
+          <div class="name">John Doe</div>
+          <div class="status">Active Now</div>
+        </div>
+        <div class="chat-actions">
+          <a href="/login">❌</a>
+          <button>👥</button>
+          <button>📹</button>
+          <button>📞</button>
+        </div>
+      </header>
+
+      <div class="chat-messages">
+        <div class="message received">
+          <p>Hey!</p>
+          <span class="time">11:12 pm</span>
+        </div>
+        <div class="message received">
+          <p>Hi, how are you doing? Can you share the docs today?</p>
+          <span class="time">11:13 pm</span>
+        </div>
+        <div class="message sent">
+          <p>I am doing great. How are you?</p>
+          <span class="time">11:14 pm</span>
+        </div>
+        <!-- More messages -->
+      </div>
+
+      <div class="chat-input">
+        <input type="text" placeholder="Type a message" />
+        <button class="send-btn">➤</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
