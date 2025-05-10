@@ -15,10 +15,15 @@ router.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "../public", "signup.html"));
 });
 
-//GET signup page
+//GET login page
 router.get("/login", (req, res) => {
   clearToken(res, req);
   res.sendFile(path.join(__dirname, "../public", "login.html"));
 });
+
+router.get('/logout',(req, res)=>{
+  clearToken(res, req);
+  res.sendFile(path.join(__dirname, "../public", "login.html"));
+})
 
 module.exports = router;

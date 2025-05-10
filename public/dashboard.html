@@ -1,74 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard - Loopa </title>
-  <link rel="stylesheet" href="css/dashboard.css">
-<link rel="shortcut icon" href="images/assets/logo.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Loopa</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      rel="shortcut icon"
+      href="images/assets/logo.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div id="logout-toast">Logging out...</div>
 
-</head>
-<body>
-  <div class="dashboard">
-    <aside class="sidebar">
-      <div class="user-profile">
-        <img src="images/avatars/user.jpg" alt="User Avatar"/>
-        <div class="user-name">Anwar Sadat</div>
-        <div class="status-indicator online"></div>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search" />
-        <button class="add-btn">+</button>
-      </div>
-      <div class="chat-tabs">
-        <button class="active">Active Now</button>
-        <button>Favourite</button>
-        <button>All</button>
-      </div>
-      <ul class="chat-list">
-        
-        <!-- More chat items -->
-      </ul>
-    </aside>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="user-profile">
+          <img src="images/avatars/user.jpg" alt="User Avatar" />
+          <div class="user-name">Loading...</div>
+          <div class="status-indicator online"></div>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+          <button class="add-btn">+</button>
+        </div>
+        <div class="chat-tabs">
+          <button class="tab-btn active" data-tab="active">Active Now</button>
+          <button class="tab-btn" data-tab="favourite">Favourite</button>
+          <button class="tab-btn" data-tab="all">All</button>
+        </div>
+        <div class="chat-lists">
+          <ul class="chat-list tab-content" data-tab="active">
+            <!-- Active users here -->
+          </ul>
 
-    <main class="chat-area">
-      <header class="chat-header">
-        <img src="images/avatars/john.jpg" />
-        <div class="chat-user">
-          <div class="name">John Doe</div>
-          <div class="status">Active Now</div>
-        </div>
-        <div class="chat-actions">
-          <a href="/login">❌</a>
-          <button>👥</button>
-          <button>📹</button>
-          <button>📞</button>
-        </div>
-      </header>
+          <ul class="chat-list tab-content hidden" data-tab="favourite">
+            <!-- Favourite users here -->
+            <li class="chat-item">
+              <img src="images/avatars/john.jpg" alt="${user.username}" />
+              <div class="chat-users-list">
+                <div class="name">John Smith</div>
+                <div class="status-indicator offline"></div>
+              </div>
+            </li>
+          </ul>
 
-      <div class="chat-messages">
-        <div class="message received">
-          <p>Hey!</p>
-          <span class="time">11:12 pm</span>
+          <ul class="chat-list tab-content hidden" data-tab="all">
+            <!-- All users here -->
+          </ul>
         </div>
-        <div class="message received">
-          <p>Hi, how are you doing? Can you share the docs today?</p>
-          <span class="time">11:13 pm</span>
-        </div>
-        <div class="message sent">
-          <p>I am doing great. How are you?</p>
-          <span class="time">11:14 pm</span>
-        </div>
-        <!-- More messages -->
-      </div>
+      </aside>
 
-      <div class="chat-input">
-        <input type="text" placeholder="Type a message" />
-        <button class="send-btn">➤</button>
-      </div>
-    </main>
-  </div>
+      <main class="chat-area">
+        <header class="chat-header">
+          <img src="images/avatars/john.jpg" />
+          <div class="chat-user">
+            <div class="name">John Doe</div>
+            <div class="status">Active Now</div>
+          </div>
+          <div class="chat-actions">
+            <button title="Group Chat">👥</button>
+            <button title="Video Call">📹</button>
+            <button title="Voice Call">📞</button>
+            <button id="logout-btn" title="Logout">🚪</button>
+          </div>
+        </header>
 
-  <script src="js/dashboard.js"></script>
-</body>
+        <div class="chat-messages">
+          <!-- <div class="message received">
+            <p>Hey!</p>
+            <span class="time">11:12 pm</span>
+          </div>
+          <div class="message received">
+            <p>Hi, how are you doing? Can you share the docs today?</p>
+            <span class="time">11:13 pm</span>
+          </div>
+          <div class="message sent">
+            <p>I am doing great. How are you?</p>
+            <span class="time">11:14 pm</span>
+          </div> -->
+          <!-- More messages -->
+        </div>
+
+        <div class="chat-input">
+          <input type="text" id="message-input" placeholder="Type a message" />
+          <button class="send-btn" id="btn-send-message">➤</button>
+        </div>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="/js/chat.js" defer></script>
+  </body>
 </html>

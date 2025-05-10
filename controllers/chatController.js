@@ -25,7 +25,6 @@ const getChatHistory = async (req, res) => {
   }
 };
 
-
 const getActiveChatUsers = async (req, res)=>{
     const userId = req.user.id;
 
@@ -43,7 +42,23 @@ const getActiveChatUsers = async (req, res)=>{
     }
 }
 
+const getUsersChatMessages = async(req, res)=>{
+    const [user1, user2] = req.params;
+
+    // const [rows] = await pool.query(
+    //     `SELECT * FROM messages
+    //     WHERE 
+    //     (sender_id= ? AND receiver_id= ?) OR
+    //     (sender_id= ? AND receiver_id= ?)
+    //     ORDER BY created_at ASC
+    //     `,[user1, user2, user2, user1]
+    // );
+
+    // res.json(rows);
+}
+
 module.exports = {
   getChatHistory,
-  getActiveChatUsers
+  getActiveChatUsers,
+  getUsersChatMessages
 };
