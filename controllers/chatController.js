@@ -30,13 +30,13 @@ const getActiveChatUsers = async (req, res)=>{
     const userId = req.user.id;
 
     try {
-        const result = await pool.query(
-            `SELECT id, username FROM users 
-            WHERE id != $1`,
-            [userId]
-        )
-        
-        return res.json(result.rows);
+        const allUsers = await pool.query(`SELECT id, username FROM users WHERE id != $1`,[userId] );
+        const currentUser = await pool.query(`SELECT id, username FROM users WHERE id = $1`,[userId]);
+
+        return res.json({
+            currentUser : currentUser.rows[0],
+            otherUsers: allUsers.rows
+        });
     } catch (err) {
         console.log('Error fetching users:', err);
         return res.status(500).json({success:false, message:'Internal server error 500'})

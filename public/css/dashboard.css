@@ -39,7 +39,7 @@ body {
   .status-indicator.offline {
     width: 10px;
     height: 10px;
-    background: rgb(109, 110, 109);
+    background: rgb(253, 59, 15);
     border-radius: 50%;
   }
   

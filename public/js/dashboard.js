@@ -11,11 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return res.json();
     })
     .then((users) => {
-        // console.log(users)
+      // console.log(users)
+      const { currentUser, otherUsers } = users;
+
+      //display current users
+      document.querySelector('.user-profile .user-name').textContent = currentUser.username
+      
       const chatList = document.querySelector(".chat-list");
       chatList.innerHTML = "";
 
-      users.forEach((user) => {
+      otherUsers.forEach((user) => {
         const li = document.createElement("li");
         li.classList.add("chat-item");
         li.dataset.id = user.id;
@@ -28,9 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             `;
 
-            chatList.appendChild(li);
+        chatList.appendChild(li);
       });
-    }).catch(error =>{
-        console.error('Error loading users (505): ', error)
+    })
+    .catch((error) => {
+      console.error("Error loading users (505): ", error);
     });
 });
