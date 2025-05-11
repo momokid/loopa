@@ -4,7 +4,7 @@ const {registerUser, logoutUser, loginUser} = require('../controllers/authContro
 
 router.post('/register', registerUser);
 
-router.get('/logout',logoutUser);
+router.post('/logout',logoutUser);
 
 router.post('/login',loginUser)
 

@@ -1,15 +1,12 @@
-const pool = require('../config/db');
+const pool = require("../config/db");
+const socketAuthMiddleware = require("../middlewares/socketAuth");
 
 function socketHandler(io) {
+  io.use(socketAuthMiddleware); //
 
   io.on("connection", (socket) => {
-    //console.log(" ✅ User connected", socket.id);
-
-    //
     socket.on("message:send", async (messageData) => {
-      // const {senderId, receiverId, content, timestamp} = messageData;
-
-      // await pool.query("INSERT INTO messages (sender_id, receiver_id,message, created_at) VALUES(?,?,?,?)",[senderId, receiverId, content, timestamp]);
+      console.log(`✅ User connected: ${socket.user.username}`);
 
       //broadcast to receiver
       socket.broadcast.emit("message:receive", messageData);
