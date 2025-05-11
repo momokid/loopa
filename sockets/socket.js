@@ -6,7 +6,9 @@ function socketHandler(io) {
 
   io.on("connection", (socket) => {
     socket.on("message:send", async (messageData) => {
-      console.log(`✅ User connected: ${socket.user.username}`);
+      console.log(`✅ User connected: ${socket.user.username}~${socket.user.id}`);
+
+      const {sender_id, receiver_id, content, timestamp} = messageData
 
       //broadcast to receiver
       socket.broadcast.emit("message:receive", messageData);

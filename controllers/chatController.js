@@ -57,8 +57,21 @@ const getUsersChatMessages = async(req, res)=>{
     // res.json(rows);
 }
 
+// const getCurrentUser = async (req, res) => {
+//   try {
+//     // req.user is set by the authenticateToken middleware
+//     const { id, username } = req.user;
+//     res.json({ id, username });
+//   } catch (err) {
+//     console.error("Error getting current user:", err);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };
+
+
 module.exports = {
   getChatHistory,
   getActiveChatUsers,
-  getUsersChatMessages
+  getUsersChatMessages,
+  // getCurrentUser
 };
